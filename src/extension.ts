@@ -1,6 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import { jumpToMenu } from './commands/commandExecute';
 
 import { jumpTo } from "./utils/jumpTo";
 
@@ -21,6 +22,7 @@ export function activate(context: vscode.ExtensionContext) {
 			jumpTo(document, '<template');
 		}
 	});
+	context.subscriptions.push(jumpToTemplate);
 
 	let jumpToScript = vscode.commands.registerCommand('genie.jumpToScript', () => {
 		const document = vscode.window.activeTextEditor?.document;
@@ -29,6 +31,8 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 	});
 
+	context.subscriptions.push(jumpToScript);
+
 	let jumpToStyle = vscode.commands.registerCommand('genie.jumpToStyle', () => {
 		const document = vscode.window.activeTextEditor?.document;
 		if(document){
@@ -36,10 +40,8 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 	});
 
-	context.subscriptions.push(jumpToScript);
 	context.subscriptions.push(jumpToStyle);
-	context.subscriptions.push(jumpToTemplate);
-
+	context.subscriptions.push(jumpToMenu);
 }
 
 // this method is called when your extension is deactivated

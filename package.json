@@ -10,24 +10,43 @@
 		"Other"
 	],
 	"activationEvents": [
-        "onCommand:genie.helloWorld"
+        "onCommand:genie.showMenu",
+        "onCommand:genie.jumpToTemplate",
+        "onCommand:genie.jumpToScript",
+        "onCommand:genie.jumpToStyle"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
 		"commands": [
 			{
+				"command": "genie.showMenu",
+				"title": "Genie Show Menu",
+				"when": "editorLangId == vue"
+			},
+			{
 				"command": "genie.jumpToTemplate",
-				"title": "Jump To <template> position"
+				"title": "Jump To <template> position",
+				"when": "editorLangId == vue"
+
 			},
 			{
 				"command": "genie.jumpToScript",
-				"title": "Jump To <script> position"
+				"title": "Jump To <script> position",
+				"when": "editorLangId == vue"
 			},
 			{
 				"command": "genie.jumpToStyle",
-				"title": "Jump To <style> position"
+				"title": "Jump To <style> position",
+				"when": "editorLangId == vue"
 			}
-		]
+		],
+		"keybindings": [
+            {
+                "command": "genie.showMenu",
+                "key": "cmd+Alt+v",
+				"mac":"cmd+ctrl+v"
+            }
+        ]
 	},
 	"scripts": {
 		"vscode:prepublish": "yarn run package",
