@@ -16,7 +16,7 @@
 		"onCommand:genie.jumpToScript",
 		"onCommand:genie.jumpToStyle"
 	],
-	"main": "./dist/extension.js",
+	"main": "./dist/client.js",
 	"contributes": {
 		"commands": [
 			{
@@ -76,10 +76,11 @@
 		"webpack-cli": "^4.10.0"
 	},
 	"dependencies": {
+		"global": "^4.4.0",
+		"minimatch": "^3.0.4",
 		"vscode-css-languageservice": "^6.0.1",
 		"vscode-html-languageservice": "^3.1.0",
 		"vscode-languageclient": "^5.2.1",
-		"vscode-languageserver": "^7.0.0",
-		"minimatch": "^3.0.4"
+		"vscode-languageserver": "^7.0.0"
 	}
 }

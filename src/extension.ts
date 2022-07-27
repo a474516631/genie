@@ -28,7 +28,7 @@ export function activate(context: ExtensionContext) {
 	// 注册命令
 	registerCommand(context);
 	let serverModule = context.asAbsolutePath(
-		path.join('server', 'out', 'server.js')
+		path.join('dist', 'server.js')
 	);
 	let debugOptions = { execArgv: ['--nolazy', '--inspect=6009'] };
 	let serverOptions: ServerOptions = {
