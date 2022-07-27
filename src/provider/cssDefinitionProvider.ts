@@ -72,7 +72,6 @@ import {
       return new Position(lineNumber, character + 1);
     }
   }
-  
 
   function getKeyword(currentLine: string, position: Position): Keyword | null {
     const words = getWords(currentLine, position);
@@ -118,27 +117,30 @@ import {
       token: CancellationToken
     ): Promise<Location|null> {
     //   const currentDir = path.dirname(document.uri.fsPath);
+      const word = document.getText(document.getWordRangeAtPosition(position,new RegExp(/[a-zA-Z0-9.\-]*/)));
+      console.log(word);
       const currentLine = getCurrentLine(document, position);
       const clickInfo = getClickInfo(document, currentLine, position);
-      if (!clickInfo) {
-        return Promise.resolve(null);
-      }
-      let targetPosition: Position | null = null;
-      if (clickInfo.targetClass) {
-        targetPosition = getPosition(
-          document,
-          clickInfo.targetClass,
-        );
-      } else {
-        targetPosition = new Position(0, 0);
-      }
-      if (targetPosition === null) {
-        return Promise.resolve(null);
-      } else {
-        return Promise.resolve(
-          new Location(Uri.file(document.uri.fsPath), targetPosition)
-        );
-      }
+      return Promise.resolve( new Location(Uri.file(document.uri.fsPath), new Position(0, 0)))
+      // if (!clickInfo) {
+      //   return Promise.resolve(null);
+      // }
+      // let targetPosition: Position | null = null;
+      // if (clickInfo.targetClass) {
+      //   targetPosition = getPosition(
+      //     document,
+      //     clickInfo.targetClass,
+      //   );
+      // } else {
+      //   targetPosition = new Position(0, 0);
+      // }
+      // if (targetPosition === null) {
+      //   return Promise.resolve(null);
+      // } else {
+      //   return Promise.resolve(
+      //     new Location(Uri.file(document.uri.fsPath), targetPosition)
+      //   );
+      // }
     }
   }
   export default CSSModuleDefinitionProvider;
