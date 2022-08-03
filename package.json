@@ -82,5 +82,19 @@
 		"vscode-html-languageservice": "^3.1.0",
 		"vscode-languageclient": "^5.2.1",
 		"vscode-languageserver": "^7.0.0"
-	}
+	},
+	"extensionPack": [
+		"lihuiwang.vue-alias-skip",
+		"streetsidesoftware.code-spell-checker",
+		"Vue.volar",
+		"dariofuzinato.vue-peek",
+		"shenjiaolong.vue-helper",
+		"xabikos.JavaScriptSnippets",
+		"esbenp.prettier-vscode",
+		"dbaeumer.vscode-eslint",
+		"christian-kohler.path-intellisense",
+		"formulahendry.auto-rename-tag",
+		"formulahendry.auto-close-tag",
+		"Vue.vscode-typescript-vue-plugin"
+	]
 }
